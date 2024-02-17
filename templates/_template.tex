@@ -1,53 +1,42 @@
-\documentclass{article}
-% \documentclass{beamer}
+% ## doc type ----
+\documentclass{article}   % article
+% \documentclass{beamer}  % slides
 % \usetheme{Madrid}
 
-%------------------------------
-% used for href/url
-\usepackage{hyperref}
+% ## packages ----
+\usepackage{hyperref} % url or href
+\usepackage{amsmath}  % formulas
+\usepackage{graphicx}   % pictures
+\usepackage{subcaption} % pictures
+\usepackage{float}      % pictures
+\usepackage{adigraph}   % graph in computer science
+\usepackage{comment}    % comment out lines
 
+\usepackage{tikz}       % Bayesian Network
+\usetikzlibrary{bayesnet}
 
-% used for math fomulas
-\usepackage{amsmath}
-
-% used for pictures
-\usepackage{graphicx}
-\usepackage{subcaption}
-\usepackage{float}
-
-% used for codes
-\usepackage{listings}
+\usepackage{listings}   % codes
 \lstset{
   basicstyle=\ttfamily\footnotesize, % Set your code to be drawn with a monospaced font
   breaklines=true, % Enables line breaking
   frame=single % Adds a frame around the code
 }
 
-% used for Graph
-\usepackage{adigraph}
-
-% used for Bayesian Network
-\usepackage{tikz}
-\usetikzlibrary{bayesnet}
-
-%------------------------------
+% ## lint ----
 % TODO 
-\tolerance=10000
+\tolerance=10000        
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
-
-
 \usepackage{silence}
 \WarningFilter{latex}{Overfull \hbox}
-
-%------------------------------
-
+\font\nullfont=cmr10  % remove a warning: Missing character: There is no ; in font nullfont!
 
 
+% ## doc ----
 \title{MK's Latex Examples}
 \date{2024-02-15}
-\author{Yonggang Chen (Michael)}
+\author{Michael Chen}
 
 \begin{document}
   \pagenumbering{gobble}
@@ -62,12 +51,9 @@
 
 
   % ----------------------------------------
-  {\Huge Hello World! @ \href{https://www.auburn.edu/}{AU Homepage} }
-
-  {\huge ... }
-
-  {\huge Let's begin our learning here }
-  {\large \url{https://latex-tutorial.com/tutorials/first-document/} }
+  \paragraph{ Hello World! @ \href{https://www.auburn.edu/}{AU Homepage} }
+  \paragraph{ Let's begin our learning here -}
+  \paragraph{ \url{https://latex-tutorial.com/tutorials/first-document/} }
   \newpage
 
   % ----------------------------------------
