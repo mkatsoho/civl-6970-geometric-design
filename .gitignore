@@ -1,0 +1,15 @@
+
+.idea/**
+.del/**
+.venv/**
+venv/**
+
+
+
+**/*.log
+**/*.aux
+**/*.fls
+**/*.fdb_latexmk
+**/*.synctex.gz
+**/*.out
+**/*.toc
