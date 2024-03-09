@@ -1,0 +1,275 @@
+\documentclass{article}
+% \documentclass{beamer}
+% \usetheme{Madrid}
+
+%------------------------------
+% used for href/url
+\usepackage{hyperref}
+
+
+% used for math fomulas
+\usepackage{amsmath}
+
+% used for pictures
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+
+% used for codes
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\footnotesize, % Set your code to be drawn with a monospaced font
+  breaklines=true, % Enables line breaking
+  frame=single % Adds a frame around the code
+}
+
+% used for Graph
+\usepackage{adigraph}
+
+% used for Bayesian Network
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}
+
+%------------------------------
+% TODO 
+\tolerance=10000
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+
+\usepackage{silence}
+\WarningFilter{latex}{Overfull \hbox}
+
+%------------------------------
+
+
+
+\title{MK's Notes for CIVL-4530 Geometric Design}
+\date{2024-03-04}
+\author{Michael Chen}
+
+\begin{document}
+  \pagenumbering{gobble}
+  % \maketitle
+  % \newpage
+  \pagenumbering{arabic}
+  \setcounter{page}{40}
+
+
+  % ----------------------------------------
+  \tableofcontents
+  \newpage
+
+
+  % ----------------------------------------
+  \setcounter{section}{3}
+  \section{Chapter 04 horizontal Alignment}
+  \subsection{Objectives}
+  \begin{enumerate}
+    \item Horizontal Curve Elements
+    \item Superelevation
+    \item Design Horizontal Curve
+  \end{enumerate}
+
+  \subsection{D - degree of curvature}
+  \begin{enumerate}
+    \item D: in degree
+    \item highways:(small) D $->$ arc length of 100ft
+    \item railroads(big) D $->$ cord length of 100ft
+    \item Relationship btw D and R -> $D / 100 = 360 / 2\pi R$
+  \end{enumerate}
+
+  
+
+  \subsection{Horizontal Curve}
+  Terms:
+  \begin{enumerate}
+    \item PC: intersection of tangent and curve
+    \item PT: intersection of tangent and curve
+    \item PI: intersection of 2 tangents
+    \item PCurve: intersection of line PI-O and curve PC-PT
+    \item PChord: intersection of chord PC-PT and line PI-O
+    \item 
+    \item R: the radius of the curve
+    \item D: in degree, the degree matches 100ft arc
+    \item $\Delta$ - the degree for the curve
+    \item 
+    \item L: in feet, curve length 
+    \item T: in feet/meter, line segment from PI to PT/PC
+    \item 
+    \item E: line segment of PI-PCurve
+    \item M: line segment of PCurve-PChord 
+    \item LC: chord PC-PT 
+    \item 
+    \item curvature - how big is a curve, $curvature = 1/R$
+  \end{enumerate}
+  Formulas:
+  \begin{align*}
+     \frac{D}{100} & = \frac{360}{2\pi R} \\
+     D & = \frac{360 \cdot 100}{2\pi R} \\
+     L & = 100 \cdot \Delta / D \\
+     L_{in\_meter} & = 30.48 \cdot \Delta / D \\
+     T & = R \cdot tan \frac{1}{2}\Delta \\
+     M & = R(1-cos \frac{1}{2} \Delta) \\
+     E & = R(\frac{1}{cos \frac{1}{2} \Delta} - 1) \\
+     LC & = 2R \cdot sin \frac{1}{2} \Delta \\
+  \end{align*}
+
+  % TODO
+  \begin{enumerate}
+    \item make criteria matches  
+    \begin{enumerate}
+      \item driver expectancy/behavior
+      \item vehicle performance/behavior
+    \end{enumerate}
+    \item balance safty, cost, mobility, community values, environmental, politics, liability, sustainable development, etc
+  \end{enumerate}
+
+  \subsection{AASHTO Role}
+  \begin{enumerate}
+    \item American Association of State Highway and Transportation Officials
+    \item the membership of AASHTO consists of FHWA, and state DOTs
+  \end{enumerate}
+
+  % ----------------------------------------
+  \subsection{Reference - AASHTO publications}
+  \begin{enumerate}
+    \item \textbf{a.k.a Green Book/PGDHS:} A Policy on Geometric Design of Highways and Streets, 2018, 7th Edition
+    \item Guidelines for Geometric Design of Very Low Volume Local Roads, 2001
+    \item A Guide to Achieving Flexibility in Highway Design, May 2004
+    \item Guide for the Planning, Design, and Operation of Pedestrian Facilities, July 2004
+    \item Guide for the Development of Bicycle Facilities, June 2012
+
+    \item Good for New Highway Design 
+    \item TRB Special Report 214, Designing Safer Roads: Practices for Resurfacing, Restoration, and Rehabilitation for guidance. \\
+  \end{enumerate}
+
+  \subsection{Reference - ITE publications}
+  ITE - Institute of Transportation Engineers. It is an international educational and scientific association of transportation professionals.\\
+  \begin{enumerate}
+    \item Urban Street Geometric Design Handbook, 2008
+    \item Freeway and Interchange Geometric Design Handbook, 2007
+    \item Designing Walkable Urban Thoroughfares: A Context Sensitive Approach, March 2010
+  \end{enumerate}
+
+  \subsection{design elements}
+  Design elements affect design consistency, driver expectancy, and vehicular operation.
+  \begin{enumerate}
+    \item horizontal and vertical alignment
+    \item embankments and slopes
+    \item shoulders, crown and cross slope, superelevation
+    \item bridge widths
+    \item signing and delineation
+    \item guardrail and placement of utility poles or light supports
+  \end{enumerate}
+
+  \subsection{Highway Design Control Factors}
+  \begin{enumerate}
+    \item Highway Function (Arterials, Collections, Locals)
+    \item Design speed of the facility
+    \item Physical characteristics of the "design vehicle" 
+    \item Performance of the design vehicle (heavy trucks, RVs)
+    \item Acceptable degree of congestion
+  \end{enumerate}
+
+  \subsection{Highway functions}
+    Highway Function: Arterials, Collections, Locals \\
+    Arterials: principal arterials, minor arterials
+    Mobility: the ability to move goods and passengers to their destination in a reasonable time 
+    Accessibility: the ability to reach desired destination
+
+  \subsection{Hierarchy of Movements - 6 stages}
+  Main Movement \\
+  Transition \\
+  Distribution \\
+  Collection \\
+  Access \\
+  Termination \\
+
+  \subsection{Hierarchy of Movements}
+	\begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+	\hline
+	\textbf{Roadway Class} & \textbf{\% Through Movement} & \textbf{VMT in Rural} & \textbf{Miles in Rural} & \textbf{VMT in Urban} & \textbf{Miles in Urban} \\
+	\hline
+	Freeways      & 100\%     &     &  \\
+	Arterials     & 60-80\%   & {\bfseries 45-75\%} & 6-12\%  & {\bfseries 65-80\%}   & 15-25\% \\
+	Collectors    & 40-60\%   & 20-35\% & 20-25\% & 5-19\%    & 5-10\% \\
+	Local Streets & 0-40\%    & 5-20\%  & {\bfseries 65-75\%} & 10-30\%   & {\bfseries 65-80\%} \\
+	\hline
+	\end{tabular}
+
+  \subsection{Highway Design Volume}
+  \begin{tabular}{|l|l|l|}
+  \hline
+  Highway Type & Approximate Design Speed & Approximate Design Volume \\
+  \hline
+  Freeway – free flow & 70-75 mph & 2400 veh/h/ln \\
+  Freeway – free flow & 65 mph & 2300 veh/h/ln \\
+  \hline
+  Rural Highways & & \\
+  a) Multilane-one way & & 1600-2000 veh/h/ln \\
+  b) Two lane & & 2000-2800 veh/h \\
+  \hline
+  Urban Highways & & \\
+  a) Arterials & & See Highway Capacity Manual \\
+  b) Signalized intersections & & 1900 pc/h/ln \\
+  c) Unsignalized intersections & & 1100-2000 veh/h \\
+  \hline
+  \end{tabular}
+
+  \subsection{Traffic Information for Roadway Designers}
+  These traffic information should be available to the designer prior to or very early in the design process:
+  \begin{enumerate}
+    \item AADT for the current year: opening year (completion of construction), and design year
+    \item Existing hourly traffic volumes over a minimum of 24-hour period, including peak hour turning movements and pedestrian counts
+    \item Directional distribution factor (D30).
+    \item 30th highest hour factor (K30).
+    \item Truck factors (T) for daily and peak hour.
+    \item Design speed and proposed posted speed.
+    \item Design vehicle for geometric design.
+    \item Turning movements and diagrams for existing and proposed signalized intersections.
+    \item Special or unique traffic conditions, including during construction.
+    \item Crash history, including analyses at high crash locations within the project limits.
+    \item Recommendations regarding parking or other traffic restrictions.
+  \end{enumerate}
+
+
+
+
+  % ----------------------------------------
+  \subsection{Terms}
+  \begin{enumerate}
+    \item cross section - A cross section refers to the vertical view of a roadway or highway at right angles to its centerline. 
+    \item embankment - An embankment is a constructed mound of earth, stones, or other materials. Its purpose is to support the raising of a roadway or railway above the level of the surrounding ground surface.
+    \item cross slope - Cross slope plays a crucial role in ensuring proper drainage and safety on roadways.
+    \item crown - The crown of a highway refers to the cross-sectional shape of the road surface.
+    \item signing and delineation -  
+    \item guardrail - A guardrail on a highway serves as a safety barrier designed to protect motorists.
+    \item guardrail and placement of utility poles or light supports - 
+    \item  detour - walkaround roadway  
+    \item through movement - refers to the uninterrupted flow of vehicles or goods from one location to another 
+    \item VMT - Vehicle Miles Traveled
+    \item open year and design year - open year means compeletion of construction. 
+    \item $D_{30}$ factor - Directional Distribution factor 
+    \item $K_{30}$ factor - the 30th highest hour factor 
+  \end{enumerate}
+
+
+  \subsection{Rules}
+
+  % ----------------------------------------
+  \subsection{Formulas}
+
+  % ----------------------------------------
+
+  \subsection{Reference}
+
+  \newpage
+
+
+
+
+
+% --------------------------------------
+\end{document}
