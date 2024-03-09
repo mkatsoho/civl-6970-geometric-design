@@ -14,6 +14,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{float}
+\usepackage{gensymb}  % for symbols like degree
 
 % used for codes
 \usepackage{listings}
@@ -77,28 +78,25 @@
   \subsection{Horizontal Curve diagram}
   Terms:
   \begin{enumerate}
-    \item PC: intersection of tangent and curve
-    \item PT: intersection of tangent and curve
-    \item PI: intersection of 2 tangents
+    \item PI: point of intersection, intersection of tangent and curve
+    \item PC: point of curve(where curve starts), intersection of tangent and curve
+    \item PT: point of tangency(where curve ends), intersection of 2 tangents
     \item PCurve: intersection of line PI-O and curve PC-PT
     \item PChord: intersection of chord PC-PT and line PI-O
     \item 
     \item R: the radius of the curve
-    \item D: in degree, the degree matches 100ft arc
+    \item D: in degree, degree of curve, the degree matches 100ft arc
     \begin{enumerate}
       \item highways:(small) D $->$ arc length of 100ft
       \item railroads(big) D $->$ cord length of 100ft
     \end{enumerate}
 
-    \item $\Delta$ - the degree for the curve
-    \item 
+    \item $\Delta$ - the degree of the curve, \textbf{the same as the bearings of 2 tangents}
     \item L: in feet, curve length 
-    \item T: in feet/meter, line segment from PI to PT/PC
-    \item 
+    \item T: line segment from PI to PT/PC
     \item E: line segment of PI-PCurve
-    \item M: line segment of PCurve-PChord 
+    \item M: middle ordinate, line segment of PCurve-PChord 
     \item LC: chord PC-PT 
-    \item 
     \item curvature - how big is a curve, $curvature = 1/R$
   \end{enumerate}
   Formulas:
@@ -113,52 +111,92 @@
      LC & = 2R \cdot sin \frac{1}{2} \Delta \\
   \end{align*}
 
-  % TODO
+
+  \subsection{stationing calculations}
+  Stationing is the concept of assigning distances along a line, such as a survey baseline (initial field survey) or center line (design) \\
+  \\
+  52+48.63 means 52 hundreds 48 ft and .63 ft\\
+  \\
+  Given PI, calculate the locations:
   \begin{enumerate}
-    \item make criteria matches  
-    \begin{enumerate}
-      \item driver expectancy/behavior
-      \item vehicle performance/behavior
-    \end{enumerate}
-    \item balance safty, cost, mobility, community values, environmental, politics, liability, sustainable development, etc
+    \item why???
+    \item PC = PI - T
+    \item PT = PC + L
   \end{enumerate}
 
-  \subsection{AASHTO Role}
+
+  \subsection{bearings calculations}
+  A bearing refers to the direction and orientation of a line\\
+  \\
+  N 73\degree 30'38''E
+  \\
+  52+48.63 means 52 hundreds 48 ft and .63 ft
   \begin{enumerate}
-    \item American Association of State Highway and Transportation Officials
-    \item the membership of AASHTO consists of FHWA, and state DOTs
+    \item 
   \end{enumerate}
 
-  % ----------------------------------------
-  \subsection{Reference - AASHTO publications}
-  \begin{enumerate}
-    \item \textbf{a.k.a Green Book/PGDHS:} A Policy on Geometric Design of Highways and Streets, 2018, 7th Edition
-    \item Guidelines for Geometric Design of Very Low Volume Local Roads, 2001
-    \item A Guide to Achieving Flexibility in Highway Design, May 2004
-    \item Guide for the Planning, Design, and Operation of Pedestrian Facilities, July 2004
-    \item Guide for the Development of Bicycle Facilities, June 2012
 
-    \item Good for New Highway Design 
-    \item TRB Special Report 214, Designing Safer Roads: Practices for Resurfacing, Restoration, and Rehabilitation for guidance. \\
+  \subsection{types of horizontal curves}
+  \begin{enumerate}
+    \item simple 
+    \item compound (R1 and R2)
+    \item reverse 
+    \item spiral (change radius btw 2 Rs)
   \end{enumerate}
+  VDOT: The use of spiral transitions for compound and reverse curves on urban roadways should be avoided, ...
 
-  \subsection{Reference - ITE publications}
-  ITE - Institute of Transportation Engineers. It is an international educational and scientific association of transportation professionals.\\
+
+
+  \subsection{sight distance on curves}
+  terms:
   \begin{enumerate}
-    \item Urban Street Geometric Design Handbook, 2008
-    \item Freeway and Interchange Geometric Design Handbook, 2007
-    \item Designing Walkable Urban Thoroughfares: A Context Sensitive Approach, March 2010
+    \item highway centerline $->$ highway radius 
+    \item centerline inside a lane $-> R_v $
+    \item line of sight
+    \item sight obstruction
+    \item sight distance
   \end{enumerate}
+    sight distance fomula:
+  \begin{align*}
+    & M_s = R_v \cdot (1 - cos_{degrees} \frac{90 SSD}{\pi R_v}) \\
+    & M_s = R_v \cdot (1 - cos_{radians} \frac{SSD}{R_v}) \\
+    \\
+    & M_s: \textbf{the middle ordinate, distance from centerline to obstruction} \\
+    & R_v: \textbf{the radius of the curve, inside lance | for the centerline of the *1st* lane}\\
+    & SSD: \textbf{the stopping sight distance}
+  \end{align*}
 
-  \subsection{design elements}
-  Design elements affect design consistency, driver expectancy, and vehicular operation.
+  \subsection{superelevation - centrifugal force}
+  \begin{align*}
+    & \textbf{suggestion value:} \\
+    & 1 mph = 1.47 ft/sec \\
+    \\
+    & \textbf{superelevation formula:} \\
+    & \frac{e + f}{1 - ef} = \frac{v^2}{gR} = \frac{V^2}{15R} \\
+    \\
+    & \textbf{minimam radius:} \\
+    & R_{min} = \frac{V^2}{15(f_s + e_{max})} = \frac{v^2}{g(f_s + e_{max})} \\
+    \\
+    & \text{ e: the rate of superelevation} \\
+    & \text{ f: coefficient of friction} \\
+    & \text{ $f_s$: side friction} \\
+    & \text{ g: 9.8, the acceleration of gravity} \\
+    & \text{ v: in ft/sec, the speed in ft/sec} \\
+    & \text{ V: in mph, the speed in mph} \\
+    & \text{ R: in ft, the radius of the curve in feet} \\
+  \end{align*}
+
+  % todo ----------------------------------------
+  \subsection{superelevation - selection of e}
   \begin{enumerate}
-    \item horizontal and vertical alignment
-    \item embankments and slopes
-    \item shoulders, crown and cross slope, superelevation
-    \item bridge widths
-    \item signing and delineation
-    \item guardrail and placement of utility poles or light supports
+    \item too high or too low?
+    \item What factors should be considered?
+    \item 
+    \item e $\leq$ 0.10 on any paved road
+    \item e $\leq$ 0.12 on unpaved roads
+    \item e $\leq$ 0.08 where there is ice and snow
+    \item e $\leq$ 0.06 in Illinois where ever practical
+    \item e $\leq$ 0.04 in Illinois for urban freeways
   \end{enumerate}
 
   \subsection{Highway Design Control Factors}
