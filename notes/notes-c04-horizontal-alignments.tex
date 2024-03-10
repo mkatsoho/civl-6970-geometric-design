@@ -2,6 +2,9 @@
 % \documentclass{beamer}
 % \usetheme{Madrid}
 
+% to include other tex files, containing tex pictures
+\usepackage{standalone}
+
 %------------------------------
 % used for href/url
 \usepackage{hyperref}
@@ -44,8 +47,6 @@
 
 %------------------------------
 
-
-
 \title{MK's Notes for CIVL-4530 Geometric Design}
 \date{2024-03-04}
 \author{Michael Chen}
@@ -73,10 +74,12 @@
     \item Design Horizontal Curve
   \end{enumerate}
 
-  
+  % include horizontal curve diagram 
+  \subsection{Horizontal Curve Diagram}
+  \input{Horizontal Curve}
 
   \subsection{Horizontal Curve diagram}
-  Terms:
+  \textbf{Terms:}
   \begin{enumerate}
     \item PI: point of intersection, intersection of tangent and curve
     \item PC: point of curve(where curve starts), intersection of tangent and curve
@@ -94,12 +97,13 @@
     \item $\Delta$ - the degree of the curve, \textbf{the same as the bearings of 2 tangents}
     \item L: in feet, curve length 
     \item T: line segment from PI to PT/PC
-    \item E: line segment of PI-PCurve
+    \item E: external distance, line segment of PI-PCurve
     \item M: middle ordinate, line segment of PCurve-PChord 
     \item LC: chord PC-PT 
     \item curvature - how big is a curve, $curvature = 1/R$
   \end{enumerate}
-  Formulas:
+
+  \subsection{Horizontal Curve formulas}
   \begin{align*}
      \frac{D}{100} & = \frac{360}{2\pi R} \\
      D & = \frac{360 \cdot 100}{2\pi R} \\
@@ -112,7 +116,7 @@
   \end{align*}
 
 
-  \subsection{stationing calculations}
+  \subsection{stationing calculations - for PI, PC and PT}
   Stationing is the concept of assigning distances along a line, such as a survey baseline (initial field survey) or center line (design) \\
   \\
   52+48.63 means 52 hundreds 48 ft and .63 ft\\
@@ -131,9 +135,6 @@
   N 73\degree 30'38''E
   \\
   52+48.63 means 52 hundreds 48 ft and .63 ft
-  \begin{enumerate}
-    \item 
-  \end{enumerate}
 
 
   \subsection{types of horizontal curves}
@@ -144,7 +145,6 @@
     \item spiral (change radius btw 2 Rs)
   \end{enumerate}
   VDOT: The use of spiral transitions for compound and reverse curves on urban roadways should be avoided, ...
-
 
 
   \subsection{sight distance on curves}
@@ -177,16 +177,15 @@
     & \textbf{minimam radius:} \\
     & R_{min} = \frac{V^2}{15(f_s + e_{max})} = \frac{v^2}{g(f_s + e_{max})} \\
     \\
-    & \text{ e: the rate of superelevation} \\
+    & \text{ e: superelevation rate, e.g. 0.04} \\
     & \text{ f: coefficient of friction} \\
-    & \text{ $f_s$: side friction} \\
+    & \text{ $f_s$: side friction, e.g. 0.10} \\
     & \text{ g: 9.8, the acceleration of gravity} \\
     & \text{ v: in ft/sec, the speed in ft/sec} \\
     & \text{ V: in mph, the speed in mph} \\
     & \text{ R: in ft, the radius of the curve in feet} \\
   \end{align*}
 
-  % todo ----------------------------------------
   \subsection{superelevation - selection of e}
   \begin{enumerate}
     \item too high or too low?
@@ -199,111 +198,67 @@
     \item e $\leq$ 0.04 in Illinois for urban freeways
   \end{enumerate}
 
-  \subsection{Highway Design Control Factors}
+
+
+
+  % todo ----------------------------------------
+
+  \subsection{superelevation - transition design control}
   \begin{enumerate}
-    \item Highway Function (Arterials, Collections, Locals)
-    \item Design speed of the facility
-    \item Physical characteristics of the "design vehicle" 
-    \item Performance of the design vehicle (heavy trucks, RVs)
-    \item Acceptable degree of congestion
+    \item Tangent runout (TR): the distance needed to change from a normal crown section to a point where the outside lane(s) is level
+    \item Superelevation Runoff (L): the distance needed to change the cross slope from the end of TR to the design full superelevation rate. 
+    \item IDOT practice: TR and 1/3 runoff on the tengent; 2/3 of runoff on the curve;
+    \item ASSHTO: placing the PC at between 60\% and 80\% of the transition length
+    \item ALDOT: 80/20 split (of the entire STL) 
+    \item VDOT: this split is of the superelevation runoff portion only, not the entire STL
+    \item Many states, including Virginia, use 2:1 split
   \end{enumerate}
 
-  \subsection{Highway functions}
-    Highway Function: Arterials, Collections, Locals \\
-    Arterials: principal arterials, minor arterials
-    Mobility: the ability to move goods and passengers to their destination in a reasonable time 
-    Accessibility: the ability to reach desired destination
-
-  \subsection{Hierarchy of Movements - 6 stages}
-  Main Movement \\
-  Transition \\
-  Distribution \\
-  Collection \\
-  Access \\
-  Termination \\
-
-  \subsection{Hierarchy of Movements}
-	\begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
-	\hline
-	\textbf{Roadway Class} & \textbf{\% Through Movement} & \textbf{VMT in Rural} & \textbf{Miles in Rural} & \textbf{VMT in Urban} & \textbf{Miles in Urban} \\
-	\hline
-	Freeways      & 100\%     &     &  \\
-	Arterials     & 60-80\%   & {\bfseries 45-75\%} & 6-12\%  & {\bfseries 65-80\%}   & 15-25\% \\
-	Collectors    & 40-60\%   & 20-35\% & 20-25\% & 5-19\%    & 5-10\% \\
-	Local Streets & 0-40\%    & 5-20\%  & {\bfseries 65-75\%} & 10-30\%   & {\bfseries 65-80\%} \\
-	\hline
-	\end{tabular}
-
-  \subsection{Highway Design Volume}
-  \begin{tabular}{|l|l|l|}
-  \hline
-  Highway Type & Approximate Design Speed & Approximate Design Volume \\
-  \hline
-  Freeway – free flow & 70-75 mph & 2400 veh/h/ln \\
-  Freeway – free flow & 65 mph & 2300 veh/h/ln \\
-  \hline
-  Rural Highways & & \\
-  a) Multilane-one way & & 1600-2000 veh/h/ln \\
-  b) Two lane & & 2000-2800 veh/h \\
-  \hline
-  Urban Highways & & \\
-  a) Arterials & & See Highway Capacity Manual \\
-  b) Signalized intersections & & 1900 pc/h/ln \\
-  c) Unsignalized intersections & & 1100-2000 veh/h \\
-  \hline
-  \end{tabular}
-
-  \subsection{Traffic Information for Roadway Designers}
-  These traffic information should be available to the designer prior to or very early in the design process:
+  \subsection{axis of rotation}
+  Axis of Rotation is the point about which the pavement edges are revolved to superelevate the roadway. 
   \begin{enumerate}
-    \item AADT for the current year: opening year (completion of construction), and design year
-    \item Existing hourly traffic volumes over a minimum of 24-hour period, including peak hour turning movements and pedestrian counts
-    \item Directional distribution factor (D30).
-    \item 30th highest hour factor (K30).
-    \item Truck factors (T) for daily and peak hour.
-    \item Design speed and proposed posted speed.
-    \item Design vehicle for geometric design.
-    \item Turning movements and diagrams for existing and proposed signalized intersections.
-    \item Special or unique traffic conditions, including during construction.
-    \item Crash history, including analyses at high crash locations within the project limits.
-    \item Recommendations regarding parking or other traffic restrictions.
+    \item typically, on undivided highways the centerline of roadway is the axis of rotation.  
+    \item typicallly, divided highways rotate around the median edge
+    \item also, some roadway revolved about inside edge!
   \end{enumerate}
 
+  \subsection{superelevation runoff fomula}
+  \begin{align*}
+    & \textbf{superelevation runoff for *TWO-Lane* roads:} \\
+    & L_{sro} \cong 30e(V + 32) \text{, for 12 ft lans} \\
+    & L_{sro} \cong 25e(V + 32) \text{, for 10 ft lans} \\
+    & L_{sro}: \text{superelevation runoff length} \\
+    & \text{e: superelevation rate} \\
+    \\
+    & \textbf{full superelevation curve length:}\\
+    & L_{full} = L_{curve} - 2L_{sro} \\
+    & L_{full}: \text{full superelevation curve length} \\
+    & L_{curve}: \text{horizontal curve length (arc length)} \\
+    \\
+    & \textbf{for multilane roads: (AASHTO Green Book) } \\
+    & \text{times 1.5 for 4 lanes (2 in each direction)} \\
+    & \text{times 2.0 for 6 lanes } \\
+  \end{align*}
 
+  \subsection{tangent runout formula}
+  \begin{align*}
+  & \textbf{tangent runout formula, given runoff:} \\
+  & TR = L_{sro} \frac{NC}{e} \\
+  & \text{TR: tengent runout} \\
+  & \text{$L_{sro}$: superelevation runoff length} \\
+  & \text{NC: normal crown rate} \\
+  \end{align*}
 
 
   % ----------------------------------------
   \subsection{Terms}
-  \begin{enumerate}
-    \item cross section - A cross section refers to the vertical view of a roadway or highway at right angles to its centerline. 
-    \item embankment - An embankment is a constructed mound of earth, stones, or other materials. Its purpose is to support the raising of a roadway or railway above the level of the surrounding ground surface.
-    \item cross slope - Cross slope plays a crucial role in ensuring proper drainage and safety on roadways.
-    \item crown - The crown of a highway refers to the cross-sectional shape of the road surface.
-    \item signing and delineation -  
-    \item guardrail - A guardrail on a highway serves as a safety barrier designed to protect motorists.
-    \item guardrail and placement of utility poles or light supports - 
-    \item  detour - walkaround roadway  
-    \item through movement - refers to the uninterrupted flow of vehicles or goods from one location to another 
-    \item VMT - Vehicle Miles Traveled
-    \item open year and design year - open year means compeletion of construction. 
-    \item $D_{30}$ factor - Directional Distribution factor 
-    \item $K_{30}$ factor - the 30th highest hour factor 
-  \end{enumerate}
-
+  gradient: slope rate
 
   \subsection{Rules}
 
-  % ----------------------------------------
   \subsection{Formulas}
 
-  % ----------------------------------------
-
   \subsection{Reference}
-
-  \newpage
-
-
-
 
 
 % --------------------------------------
