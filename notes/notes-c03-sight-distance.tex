@@ -10,6 +10,9 @@
 % used for math fomulas
 \usepackage{amsmath}
 
+% used for tables
+\usepackage{booktabs} % For better looking tables
+
 % used for pictures
 \usepackage{graphicx}
 \usepackage{subcaption}
@@ -51,9 +54,11 @@
 
 \begin{document}
   \pagenumbering{gobble}
-  \maketitle
-  \newpage
-  \pagenumbering{roman}
+  % \maketitle      % hide title page
+  % \newpage
+  \pagenumbering{arabic}
+  \setcounter{page}{30}   % start from page 30
+  % \pagenumbering{roman}
 
 
   % ----------------------------------------
@@ -62,9 +67,8 @@
 
 
   % ----------------------------------------
-  Geometric Design is a basic course of Transportation, introducing principal concepts and fomulas.
-
-  \newpage
+  % Geometric Design is a basic course of Transportation, introducing principal concepts and fomulas.
+  % \newpage
 
   % ----------------------------------------
   \setcounter{section}{2}
@@ -127,9 +131,160 @@
 
 
   \subsection{DSS - decision sight distance}
+  For A or B (avoidance maneuvers): \\
+  $DSD = 1.47V_{t} + 1.075(V^2/a)$ \\
+  \\
+  For C, D, and E: \\
+  $DSD = 1.47V_{t}$ \\
+  \\
+
+  \subsection{DSS - decision sight distance}
+  Decision sight distance for various conditions: \\
+  \\
+  Avoidance Maneuver A: Stop on rural road, t = 3.0 s\\
+  Avoidance Maneuver B: Stop on urban road, t = 9.1 s\\
+  \\
+  Avoidance Maneuver C: Speed/path/direction change on rural road, t varies between 10.2 and 11.2 s \\
+  Avoidance Maneuver D: Speed/path/direction change on suburban road, t varies between 12.1 and 12.9 s \\
+  Avoidance Maneuver E: Speed/path/direction change on urban road, t varies between 14.0 and 14.5 s \\
+  \\
+  Source: AASHTO Green Book, 2011, Table 3-3\\
+
+
+
+  \begin{table}[h!]
+  \centering
+  \caption{U.S. Customary Decision Sight Distance}
+  \label{tab:us_customary_decision_sight_distance}
+  \begin{tabular}{ccccccc}
+  \toprule
+  Design Speed (mph) & \multicolumn{5}{c}{Decision Sight Distance (ft)} &  \\
+  \cmidrule(lr){2-6}
+  & A & B & C & D & E & \\
+  \midrule
+  30 & 220 & 490 & 450 & 535 & 620 & \\
+  35 & 275 & 590 & 525 & 625 & 720 & \\
+  40 & 330 & 690 & 600 & 715 & 825 & \\
+  45 & 395 & 800 & 675 & 800 & 930 & \\
+  50 & 465 & 910 & 750 & 890 & 1030 & \\
+  55 & 535 & 1030 & 865 & 980 & 1135 & \\
+  60 & 610 & 1150 & 990 & 1125 & 1280 & \\
+  65 & 695 & 1275 & 1050 & 1220 & 1365 & \\
+  70 & 780 & 1410 & 1105 & 1275 & 1445 & \\
+  75 & 875 & 1545 & 1180 & 1365 & 1545 & \\
+  80 & 970 & 1685 & 1260 & 1455 & 1650 & \\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[h!]
+  \centering
+  \caption{Metric Decision Sight Distance}
+  \label{tab:metric_decision_sight_distance}
+  \begin{tabular}{ccccccc}
+  \toprule
+  Design Speed (km/h) & \multicolumn{5}{c}{DSD (m)} \\
+  \cmidrule(lr){2-6}
+  & A & B & C & D & E \\
+  \midrule
+  50 & 70 & 155 & 145 & 170 & 195 \\
+  60 & 95 & 195 & 170 & 205 & 235 \\
+  70 & 115 & 325 & 200 & 235 & 275 \\
+  80 & 140 & 280 & 230 & 270 & 315 \\
+  90 & 170 & 325 & 270 & 315 & 360 \\
+  100 & 200 & 370 & 315 & 355 & 400 \\
+  110 & 235 & 420 & 330 & 380 & 430 \\
+  120 & 265 & 470 & 360 & 415 & 470 \\
+  130 & 305 & 525 & 390 & 450 & 510 \\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+
+  \newpage
+
+  \subsection{PSD - Passing sight distance}
+  passing vehicle speed - passed vehicle speed $>=$ 12 mi/h\\
+  \\
+  On two-lane rural highways\\
+  overtaking and returning to lane\\
+  before opposing vehicle reaches passing vehicle\\
+
+
+  \subsection{Passing sight distance assumptions - Green Book}
+  \begin{enumerate}
+    \item Speeds of passing and opposing vehicles equal the design speed
+    \item Speed differential between the passing and passed vehicle is 12 mi/h
+    \item Design vehicle is passenger car for all vehicles involved
+    \item Perception-reaction time to decide to abort is 1 second
+    \item Deceleration rate in abort maneuver is $11.2 ft/sec^2$
+    \item Headway at end of maneuver is 1 second
+  \end{enumerate}
+
+
+
+  \begin{table}
+  \centering
+  \caption{U.S. Customary Assumed Speeds and Passing Sight Distance}
+  \label{tab:us_customary_speeds}
+  \begin{tabular}{cccc}
+  \toprule
+  Design Speed (mph) & Passed Vehicle (mph) & Passing Vehicle (mph) & Passing Sight Distance (ft) \\
+  \midrule
+  20 & 8  & 20 & 400 \\
+  25 & 13 & 25 & 450 \\
+  30 & 18 & 30 & 500 \\
+  35 & 23 & 35 & 550 \\
+  40 & 28 & 40 & 600 \\
+  45 & 33 & 45 & 700 \\
+  50 & 38 & 50 & 800 \\
+  55 & 43 & 55 & 900 \\
+  60 & 48 & 60 & 1000 \\
+  65 & 53 & 65 & 1100 \\
+  70 & 58 & 70 & 1200 \\
+  75 & 63 & 75 & 1300 \\
+  80 & 68 & 80 & 1400 \\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+  
+  \begin{table}[h!]
+  \centering
+  \caption{Metric Passing Sight Distance}
+  \label{tab:metric_passing_sight_distance}
+  \begin{tabular}{cccc}
+  \toprule
+  Design Speed (km/h) & Assumed Speeds Passed Vehicle (km/h) & Passing Vehicle (km/h) & PSD (m) \\
+  \midrule
+  30 & 11 & 30 & 120 \\
+  40 & 21 & 40 & 140 \\
+  50 & 31 & 50 & 160 \\
+  60 & 41 & 60 & 180 \\
+  70 & 51 & 70 & 210 \\
+  80 & 61 & 80 & 245 \\
+  90 & 71 & 90 & 280 \\
+  100 & 81 & 100 & 320 \\
+  110 & 91 & 110 & 355 \\
+  120 & 101 & 120 & 395 \\
+  130 & 111 & 130 & 440 \\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+  
+  
+
 
   % todo ----------------------------------------
-  \subsection{Reference - AASHTO publications}
+
+
+
+  \subsection{vertical sight distance - Sighting Rod and Target Rod - AASHTO}
+  Sighting rod (driver eye, used by observer):  3.5ft tall \\
+  \\
+  Target rod (object, used by assistant): 4.25ft tall
+  \\
+
+
+  \subsection{ISD - Intersection Sight Distance}
   \begin{enumerate}
     \item \textbf{a.k.a Green Book/PGDHS:} A Policy on Geometric Design of Highways and Streets, 2018, 7th Edition
     \item Guidelines for Geometric Design of Very Low Volume Local Roads, 2001
@@ -141,13 +296,31 @@
     \item TRB Special Report 214, Designing Safer Roads: Practices for Resurfacing, Restoration, and Rehabilitation for guidance. \\
   \end{enumerate}
 
-  \subsection{Reference - ITE publications}
-  ITE - Institute of Transportation Engineers. It is an international educational and scientific association of transportation professionals.\\
-  \begin{enumerate}
-    \item Urban Street Geometric Design Handbook, 2008
-    \item Freeway and Interchange Geometric Design Handbook, 2007
-    \item Designing Walkable Urban Thoroughfares: A Context Sensitive Approach, March 2010
-  \end{enumerate}
+  
+
+  \subsection{ISD - formula}
+  The Intersection Sight Distance (ISD) is given by the formula:
+  \begin{equation}
+      ISD = 1.47 V_{\text{major}} \times t_g
+  \end{equation}
+  where:
+  \begin{itemize}
+      \item $ISD$ in ft, the intersection sight distance (length of the leg of sight triangle along the major road)
+      \item $V_{\text{major}}$ in mph, the design speed of the major road in miles per hour (mph).
+      \item $t_g$ in seconds, is the time gap for a minor road vehicle to enter the major road
+  \end{itemize}
+  where $t_g$:
+  \begin{itemize}
+      \item design vehicle: passenger car 7.5s; single-unit truck 9.5s; combination truck 11.5s
+      \item a stopped vehicle turns \textbf{left} to a 2-lane highway; without median; grade $<= 3\%$
+      \item Major highway: each additional lane, passenger car $+ 0.5s$; trunck $+ 0.7s$;
+      \item Minor road: grade $> 3\%$, add 0.3s for each percent grade
+  \end{itemize}
+
+
+
+
+
 
   \subsection{design elements}
   Design elements affect design consistency, driver expectancy, and vehicular operation.
