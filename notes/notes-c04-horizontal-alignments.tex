@@ -1,0 +1,264 @@
+\documentclass{article}
+% \documentclass{beamer}
+% \usetheme{Madrid}
+
+% to include other tex files, containing tex pictures
+\usepackage{standalone}
+
+%------------------------------
+% used for href/url
+\usepackage{hyperref}
+
+
+% used for math fomulas
+\usepackage{amsmath}
+
+% used for pictures
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{gensymb}  % for symbols like degree
+
+% used for codes
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\footnotesize, % Set your code to be drawn with a monospaced font
+  breaklines=true, % Enables line breaking
+  frame=single % Adds a frame around the code
+}
+
+% used for Graph
+\usepackage{adigraph}
+
+% used for Bayesian Network
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}
+
+%------------------------------
+% TODO 
+\tolerance=10000
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+
+\usepackage{silence}
+\WarningFilter{latex}{Overfull \hbox}
+
+%------------------------------
+
+\title{MK's Notes for CIVL-4530 Geometric Design}
+\date{2024-03-04}
+\author{Michael Chen}
+
+\begin{document}
+  \pagenumbering{gobble}
+  % \maketitle
+  % \newpage
+  \pagenumbering{arabic}
+  % \setcounter{page}{40}
+
+
+  % todo ----------------------------------------
+  % \tableofcontents
+  % \newpage
+
+
+  % ----------------------------------------
+  \section{Horizontal Alignment}
+  \subsection{Objectives}
+  \begin{enumerate}
+    \item Horizontal Curve Elements
+    \item Superelevation
+    \item Design Horizontal Curve
+  \end{enumerate}
+
+  % include horizontal curve diagram 
+  \subsection{Horizontal Curve Diagram}
+  \input{Horizontal Curve}
+
+  \subsection{Horizontal Curve diagram}
+  \textbf{Terms:}
+  \begin{enumerate}
+    \item PI: point of intersection, intersection of tangent and curve
+    \item PC: point of curve(where curve starts), intersection of tangent and curve
+    \item PT: point of tangency(where curve ends), intersection of 2 tangents
+    \item PCurve: intersection of line PI-O and curve PC-PT
+    \item PChord: intersection of chord PC-PT and line PI-O
+    \item 
+    \item R: the radius of the curve
+    \item D: in degree, degree of curve, the degree matches 100ft arc
+    \begin{enumerate}
+      \item highways:(small) D $->$ arc length of 100ft
+      \item railroads(big) D $->$ cord length of 100ft
+    \end{enumerate}
+
+    \item $\Delta$ - the degree of the curve, \textbf{the same as the bearings of 2 tangents}
+    \item L: in feet, curve length 
+    \item T: line segment from PI to PT/PC
+    \item E: external distance, line segment of PI-PCurve
+    \item M: middle ordinate, line segment of PCurve-PChord 
+    \item LC: chord PC-PT 
+    \item curvature - how big is a curve, $curvature = 1/R$
+  \end{enumerate}
+
+  \subsection{Horizontal Curve formulas}
+  \begin{align*}
+     \frac{D}{100} & = \frac{360}{2\pi R} \\
+     D & = \frac{360 \cdot 100}{2\pi R} \\
+     L & = 100 \cdot \Delta / D \\
+     L_{in\_meter} & = 30.48 \cdot \Delta / D \\
+     T & = R \cdot tan \frac{1}{2}\Delta \\
+     M & = R(1-cos \frac{1}{2} \Delta) \\
+     E & = R(\frac{1}{cos \frac{1}{2} \Delta} - 1) \\
+     LC & = 2R \cdot sin \frac{1}{2} \Delta \\
+  \end{align*}
+
+
+  \subsection{stationing calculations - for PI, PC and PT}
+  Stationing is the concept of assigning distances along a line, such as a survey baseline (initial field survey) or center line (design) \\
+  \\
+  52+48.63 means 52 hundreds 48 ft and .63 ft\\
+  \\
+  Given PI, calculate the locations:
+  \begin{enumerate}
+    \item why???
+    \item PC = PI - T
+    \item PT = PC + L
+  \end{enumerate}
+
+
+  \subsection{bearings calculations}
+  A bearing refers to the direction and orientation of a line\\
+  \\
+  N 73\degree 30'38''E
+  \\
+  52+48.63 means 52 hundreds 48 ft and .63 ft
+
+
+  \subsection{types of horizontal curves}
+  \begin{enumerate}
+    \item simple 
+    \item compound (R1 and R2)
+    \item reverse 
+    \item spiral (change radius btw 2 Rs)
+  \end{enumerate}
+  VDOT: The use of spiral transitions for compound and reverse curves on urban roadways should be avoided, ...
+
+
+  \subsection{sight distance on curves}
+  terms:
+  \begin{enumerate}
+    \item highway centerline $->$ highway radius 
+    \item centerline inside a lane $-> R_v $
+    \item line of sight
+    \item sight obstruction
+    \item sight distance
+  \end{enumerate}
+    sight distance fomula:
+  \begin{align*}
+    & M_s = R_v \cdot (1 - cos_{degrees} \frac{90 SSD}{\pi R_v}) \\
+    & M_s = R_v \cdot (1 - cos_{radians} \frac{SSD}{R_v}) \\
+    \\
+    & M_s: \textbf{the middle ordinate, distance from centerline to obstruction} \\
+    & R_v: \textbf{the radius of the curve, inside lance | for the centerline of the *1st* lane}\\
+    & SSD: \textbf{the stopping sight distance}
+  \end{align*}
+
+  \subsection{superelevation - centrifugal force}
+  \begin{align*}
+    & \textbf{suggestion value:} \\
+    & 1 mph = 1.47 ft/sec \\
+    \\
+    & \textbf{superelevation formula:} \\
+    & \frac{e + f}{1 - ef} = \frac{v^2}{gR} = \frac{V^2}{15R} \\
+    \\
+    & \textbf{minimam radius:} \\
+    & R_{min} = \frac{V^2}{15(f_s + e_{max})} = \frac{v^2}{g(f_s + e_{max})} \\
+    \\
+    & \text{ e: superelevation rate, e.g. 0.04} \\
+    & \text{ f: coefficient of friction} \\
+    & \text{ $f_s$: side friction, e.g. 0.10} \\
+    & \text{ g: 9.8, the acceleration of gravity} \\
+    & \text{ v: in ft/sec, the speed in ft/sec} \\
+    & \text{ V: in mph, the speed in mph} \\
+    & \text{ R: in ft, the radius of the curve in feet} \\
+  \end{align*}
+
+  \subsection{superelevation - selection of e}
+  \begin{enumerate}
+    \item too high or too low?
+    \item What factors should be considered?
+    \item 
+    \item e $\leq$ 0.10 on any paved road
+    \item e $\leq$ 0.12 on unpaved roads
+    \item e $\leq$ 0.08 where there is ice and snow
+    \item e $\leq$ 0.06 in Illinois where ever practical
+    \item e $\leq$ 0.04 in Illinois for urban freeways
+  \end{enumerate}
+
+
+
+
+  % todo ----------------------------------------
+
+  \subsection{superelevation - transition design control}
+  \begin{enumerate}
+    \item Tangent runout (TR): the distance needed to change from a normal crown section to a point where the outside lane(s) is level
+    \item Superelevation Runoff (L): the distance needed to change the cross slope from the end of TR to the design full superelevation rate. 
+    \item IDOT practice: TR and 1/3 runoff on the tengent; 2/3 of runoff on the curve;
+    \item ASSHTO: placing the PC at between 60\% and 80\% of the transition length
+    \item ALDOT: 80/20 split (of the entire STL) 
+    \item VDOT: this split is of the superelevation runoff portion only, not the entire STL
+    \item Many states, including Virginia, use 2:1 split
+  \end{enumerate}
+
+  \subsection{axis of rotation}
+  Axis of Rotation is the point about which the pavement edges are revolved to superelevate the roadway. 
+  \begin{enumerate}
+    \item typically, on undivided highways the centerline of roadway is the axis of rotation.  
+    \item typicallly, divided highways rotate around the median edge
+    \item also, some roadway revolved about inside edge!
+  \end{enumerate}
+
+  \subsection{superelevation runoff fomula}
+  \begin{align*}
+    & \textbf{superelevation runoff for *TWO-Lane* roads:} \\
+    & L_{sro} \cong 30e(V + 32) \text{, for 12 ft lans} \\
+    & L_{sro} \cong 25e(V + 32) \text{, for 10 ft lans} \\
+    & L_{sro}: \text{superelevation runoff length} \\
+    & \text{e: superelevation rate} \\
+    \\
+    & \textbf{full superelevation curve length:}\\
+    & L_{full} = L_{curve} - 2L_{sro} \\
+    & L_{full}: \text{full superelevation curve length} \\
+    & L_{curve}: \text{horizontal curve length (arc length)} \\
+    \\
+    & \textbf{for multilane roads: (AASHTO Green Book) } \\
+    & \text{times 1.5 for 4 lanes (2 in each direction)} \\
+    & \text{times 2.0 for 6 lanes } \\
+  \end{align*}
+
+  \subsection{tangent runout formula}
+  \begin{align*}
+  & \textbf{tangent runout formula, given runoff:} \\
+  & TR = L_{sro} \frac{NC}{e} \\
+  & \text{TR: tengent runout} \\
+  & \text{$L_{sro}$: superelevation runoff length} \\
+  & \text{NC: normal crown rate} \\
+  \end{align*}
+
+
+  % ----------------------------------------
+  \subsection{Terms}
+  gradient: slope rate
+
+  \subsection{Rules}
+
+  \subsection{Formulas}
+
+  \subsection{Reference}
+
+
+% --------------------------------------
+\end{document}

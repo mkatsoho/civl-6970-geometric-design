@@ -1,0 +1,205 @@
+\documentclass{article}
+% \documentclass{beamer}
+% \usetheme{Madrid}
+
+% to include other tex files, containing tex pictures
+\usepackage{standalone}
+
+%------------------------------
+% used for href/url
+\usepackage{hyperref}
+
+
+% used for math fomulas
+\usepackage{amsmath}
+
+% used for pictures
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{gensymb}  % for symbols like degree
+
+% used for codes
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\footnotesize, % Set your code to be drawn with a monospaced font
+  breaklines=true, % Enables line breaking
+  frame=single % Adds a frame around the code
+}
+
+% used for Graph
+\usepackage{adigraph}
+
+% used for Bayesian Network
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}
+
+%------------------------------
+% TODO 
+\tolerance=10000
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+
+\usepackage{silence}
+\WarningFilter{latex}{Overfull \hbox}
+
+%------------------------------
+
+\title{MK's Notes for CIVL-4530 Geometric Design}
+\date{2024-03-10}
+\author{Michael Chen}
+
+\begin{document}
+  \pagenumbering{gobble}
+  % \maketitle
+  % \newpage
+  \pagenumbering{arabic}
+  % \setcounter{page}{40}
+  \setcounter{section}{4}
+
+  % todo ----------------------------------------
+  % \tableofcontents
+  % \newpage
+
+
+  % ----------------------------------------
+  \section{Vertical Alignment}
+  \subsection{Objectives}
+  \begin{enumerate}
+    \item Understand basic philosophies in establishing a vertical alignment 
+    \item Apply criteria for selection of grades
+    \item Design a vertical Curve
+  \end{enumerate}
+
+  \subsection{philosophies}
+  \begin{enumerate}
+    \item conform to the existing terrain (within constraints of max grade and min lengths of vertical curves)
+    \item to minimize impacts (balance earthwork)
+    \item coordinate horizontal and vertical alignments (HC and VC)
+    \begin{enumerate}
+      \item avoid steep (near the max) grades and sharp (near min radius) horizontal curve
+      \item avoid placing the start of HC in the middle of VC; VC either at HC tangents or at HC vurves 
+      \item avoid placing the start of HC at the bottom of a steep VC
+    \end{enumerate}
+  \end{enumerate}
+
+  \subsection{maximum grades}
+  \begin{enumerate}
+    \item Steepness and length heavily impacts heavy vehicles.
+    \item max grade design criteria is related with: design speed, the functional classification, and terrain
+    \item max grades: by AASHTO
+    \begin{enumerate}
+      \item freeway: 3-6\%, +3.00\% 70mph; max +4.00\% for upgrade, max -5.00\% for downgrade 
+      \item arterials: +3.00\% 60mph; up to +8.00\% 40mph at mountainous 
+      \item collectors: +4.00\% 70mph; up to +14.00\% 20 mph, mountainous
+      \item locals: up to +17.00\% in mountainous terrain
+    \end{enumerate}
+    \item min grades:
+    \begin{enumerate}
+      \item urban design(curb and gutter): an appropriate min grade is 0.5\%, but grade of .30\% ...
+      \item rural deisgn(shoulder and ditches): ... cross-slope is adaquate ...
+    \end{enumerate}
+  \end{enumerate}
+
+  \subsection{Vertical Curve}
+  \input{Vertical Curve2.txt}  % TODO - crop the drawing
+  \begin{align*}
+    & \textbf{If $G_1$ and $G_2$ are in slope, e.g. +0.02, x and L must in feet}\\
+    \\
+    & A = G_2 - G_1  \\
+    & \text{A: total change in grade, if negative, the curve is below the tangent}\\
+    & \text{$G_n$: grade, like -0.08} \\
+    \\
+    & Y_{offset} = x^2 \frac{A}{2L} = x^2 \frac{G_2 - G_1}{2L} \\
+    & Y_{offset}: \text{vertical offset from a tangent to a parabola, maybe negative!!!} \\
+    \\
+    & Y_{tan} = Y_{vpc} + G_1x \\
+    & Y_{tan}: \text{tangent elevation} \\
+    \\
+    & Y_{curve} = Y_{vpc} + G_1x + \frac{A}{2L}x^2 \\
+    & Y_{curve}: \text{curve elevation} \\
+    \\
+    & Y_{tan} = Y_{offset} + Y_{curve} \\
+    \\
+    & x_{hi/lo} = L \frac{G_1}{G_1 - G_2} \\
+    & x_{hi/lo}: \text{the highest/lowest point}\\
+  \end{align*}
+
+
+  \subsection{stopping/passing sight distance on crest curves}
+  \begin{align*}
+    & A = G_2 - G_1 \\
+    \\
+    & \textbf{*SSD/PSD* minimum length of crest curve:} \\
+    & L = \frac{|A|S^2}{200(\sqrt{h_1} + \sqrt{h_2})^2}  \text{   when } S \leq L \\
+    & L = 2S - \frac{200(\sqrt{h_1} + \sqrt{h_2})^2}{|A|}  \text{  when } S \geq L \\
+    & \text{ stopping: $h_1 = 3.5ft$,  $h_2 = 2.0 ft$ } \\
+    & \text{ passing: $h_1 = 3.5ft$,  $h_2 = 3.5ft$} \\
+    \\
+    & \textbf{*SSD* minimum length of crest curve:} \\
+    & L_{SSD} = \frac{|A|S^2}{2158} \text{   when } S \leq L \\
+    & L_{SSD} = 2S - \frac{2158}{|A|} \text{  when } S \geq L \\
+    \\
+    & \textbf{A: in unit \%, e.g. 3, the grade change of VC}\\
+    & \text{L: the minimum length of the vertical curve ??? the arc length or the horizontal segment length???}\\
+    & \text{S: stop sight distance, related with speed, reaction time, and coefficient of friction} \\
+    & h_1: \text{3.5 feet, the driver eye height} \\
+    & h_2: \textbf{2.0 feet, the object height} \\
+  \end{align*}
+
+  \subsection{sag sight distance}
+  TODO diagram??? \\
+  \begin{align*}
+    & \textbf{minimum length of sag curve} \\
+    & L = \frac{|A|S^2}{200(h + S \cdot tan \beta)}   \text{ when } S \leq L \\
+    & L = 2S - \frac{200(h + S \cdot tan \beta)}{|A|} \text{ when } S \geq L \\
+    \\
+    & L = \frac{|A|S^2}{400 + 3.5S} \text{ when } S \leq L \\
+    & L = 2S - \frac{400 + 3.5S}{|A|} \text{ when } S \geq L \\
+    & \text{A: in unit \%, e.g. 3, the grade change of VC}\\
+    & \text{L: the horizontal length of sag curve}\\
+    & \text{S: sag sight distance} \\
+    & \text{h: 2 feet, the headlamp height}\\
+    & \beta: \text{1 degree, the headlamp beam angle}\\
+  \end{align*}
+
+  % TODO
+  \subsection{Vertical curve design - AASHTO elevation table - $K^a$}
+  \begin{align*}
+    & \textbf{Another approach to determining curve length! }\\
+    &  L = K \cdot A \\
+    \\
+    & \text{L: in feet, curve length, minimum length for a given design speed }\\
+    & \text{A: in unit \%, change in grade  }\\
+    & \text{K: rate of vertical curvature, K = required ft of curve length per 1\% net change in grade }\\
+    & \text{K table for crest VC }\\
+    & \text{K table for sag VC }
+  \end{align*}
+  TODO add tables???
+
+  \subsection{vertical alignment - elevation}
+  TODO % TODO
+  \begin{enumerate}
+    \item 
+  \end{enumerate}
+  \begin{align*}
+    \\
+  \end{align*}
+
+
+  % ----------------------------------------
+  \subsection{Terms}
+  gradient: slope rate
+  grade: e.g. +4.00\% a upward slope; -3.00\% a downward slope
+
+  \subsection{Rules}
+
+  \subsection{Formulas}
+
+  \subsection{Reference}
+
+
+% --------------------------------------
+\end{document}

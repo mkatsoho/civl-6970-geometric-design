@@ -54,25 +54,17 @@
 
 \begin{document}
   \pagenumbering{gobble}
-  % \maketitle      % hide title page
+  % \maketitle
   % \newpage
   \pagenumbering{arabic}
-  \setcounter{page}{30}   % start from page 30
-  % \pagenumbering{roman}
+  % \setcounter{page}{29}
 
-
-  % ----------------------------------------
-  \tableofcontents
-  \newpage
-
-
-  % ----------------------------------------
-  % Geometric Design is a basic course of Transportation, introducing principal concepts and fomulas.
+  % todo ----------------------------------------
+  % \tableofcontents
   % \newpage
 
   % ----------------------------------------
-  \setcounter{section}{2}
-  \section{Chapter 03 Sight Distance (SD)}
+  \section{Sight Distance (SD)}
   \subsection{Objectives}
   \begin{enumerate}
     \item describe various types of sight distance
@@ -273,162 +265,16 @@
   
 
 
-  % todo ----------------------------------------
-
-
-
-  \subsection{vertical sight distance - Sighting Rod and Target Rod - AASHTO}
-  Sighting rod (driver eye, used by observer):  3.5ft tall \\
-  \\
-  Target rod (object, used by assistant): 4.25ft tall
-  \\
-
-
-  \subsection{ISD - Intersection Sight Distance}
-  \begin{enumerate}
-    \item \textbf{a.k.a Green Book/PGDHS:} A Policy on Geometric Design of Highways and Streets, 2018, 7th Edition
-    \item Guidelines for Geometric Design of Very Low Volume Local Roads, 2001
-    \item A Guide to Achieving Flexibility in Highway Design, May 2004
-    \item Guide for the Planning, Design, and Operation of Pedestrian Facilities, July 2004
-    \item Guide for the Development of Bicycle Facilities, June 2012
-
-    \item Good for New Highway Design 
-    \item TRB Special Report 214, Designing Safer Roads: Practices for Resurfacing, Restoration, and Rehabilitation for guidance. \\
-  \end{enumerate}
-
-  
-
-  \subsection{ISD - formula}
-  The Intersection Sight Distance (ISD) is given by the formula:
-  \begin{equation}
-      ISD = 1.47 V_{\text{major}} \times t_g
-  \end{equation}
-  where:
-  \begin{itemize}
-      \item $ISD$ in ft, the intersection sight distance (length of the leg of sight triangle along the major road)
-      \item $V_{\text{major}}$ in mph, the design speed of the major road in miles per hour (mph).
-      \item $t_g$ in seconds, is the time gap for a minor road vehicle to enter the major road
-  \end{itemize}
-  where $t_g$:
-  \begin{itemize}
-      \item design vehicle: passenger car 7.5s; single-unit truck 9.5s; combination truck 11.5s
-      \item a stopped vehicle turns \textbf{left} to a 2-lane highway; without median; grade $<= 3\%$
-      \item Major highway: each additional lane, passenger car $+ 0.5s$; trunck $+ 0.7s$;
-      \item Minor road: grade $> 3\%$, add 0.3s for each percent grade
-  \end{itemize}
-
-
-
-
-
-
-  \subsection{design elements}
-  Design elements affect design consistency, driver expectancy, and vehicular operation.
-  \begin{enumerate}
-    \item horizontal and vertical alignment
-    \item embankments and slopes
-    \item shoulders, crown and cross slope, superelevation
-    \item bridge widths
-    \item signing and delineation
-    \item guardrail and placement of utility poles or light supports
-  \end{enumerate}
-
-  \subsection{Highway Design Control Factors}
-  \begin{enumerate}
-    \item Highway Function (Arterials, Collections, Locals)
-    \item Design speed of the facility
-    \item Physical characteristics of the "design vehicle" 
-    \item Performance of the design vehicle (heavy trucks, RVs)
-    \item Acceptable degree of congestion
-  \end{enumerate}
-
-  \subsection{Highway functions}
-    Highway Function: Arterials, Collections, Locals \\
-    Arterials: principal arterials, minor arterials
-    Mobility: the ability to move goods and passengers to their destination in a reasonable time 
-    Accessibility: the ability to reach desired destination
-
-  \subsection{Hierarchy of Movements - 6 stages}
-  Main Movement \\
-  Transition \\
-  Distribution \\
-  Collection \\
-  Access \\
-  Termination \\
-
-  \subsection{Hierarchy of Movements}
-	\begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
-	\hline
-	\textbf{Roadway Class} & \textbf{\% Through Movement} & \textbf{VMT in Rural} & \textbf{Miles in Rural} & \textbf{VMT in Urban} & \textbf{Miles in Urban} \\
-	\hline
-	Freeways      & 100\%     &     &  \\
-	Arterials     & 60-80\%   & {\bfseries 45-75\%} & 6-12\%  & {\bfseries 65-80\%}   & 15-25\% \\
-	Collectors    & 40-60\%   & 20-35\% & 20-25\% & 5-19\%    & 5-10\% \\
-	Local Streets & 0-40\%    & 5-20\%  & {\bfseries 65-75\%} & 10-30\%   & {\bfseries 65-80\%} \\
-	\hline
-	\end{tabular}
-
-  \subsection{Highway Design Volume}
-  \begin{tabular}{|l|l|l|}
-  \hline
-  Highway Type & Approximate Design Speed & Approximate Design Volume \\
-  \hline
-  Freeway – free flow & 70-75 mph & 2400 veh/h/ln \\
-  Freeway – free flow & 65 mph & 2300 veh/h/ln \\
-  \hline
-  Rural Highways & & \\
-  a) Multilane-one way & & 1600-2000 veh/h/ln \\
-  b) Two lane & & 2000-2800 veh/h \\
-  \hline
-  Urban Highways & & \\
-  a) Arterials & & See Highway Capacity Manual \\
-  b) Signalized intersections & & 1900 pc/h/ln \\
-  c) Unsignalized intersections & & 1100-2000 veh/h \\
-  \hline
-  \end{tabular}
-
-  \subsection{Traffic Information for Roadway Designers}
-  These traffic information should be available to the designer prior to or very early in the design process:
-  \begin{enumerate}
-    \item AADT for the current year: opening year (completion of construction), and design year
-    \item Existing hourly traffic volumes over a minimum of 24-hour period, including peak hour turning movements and pedestrian counts
-    \item Directional distribution factor (D30).
-    \item 30th highest hour factor (K30).
-    \item Truck factors (T) for daily and peak hour.
-    \item Design speed and proposed posted speed.
-    \item Design vehicle for geometric design.
-    \item Turning movements and diagrams for existing and proposed signalized intersections.
-    \item Special or unique traffic conditions, including during construction.
-    \item Crash history, including analyses at high crash locations within the project limits.
-    \item Recommendations regarding parking or other traffic restrictions.
-  \end{enumerate}
-
-
 
 
   % ----------------------------------------
   \subsection{Terms}
-  \begin{enumerate}
-    \item PRT - perception-reaction time
-    \item MT - maneuver time
-    \item trajectory -  
-    \item 
-  \end{enumerate}
-
 
   \subsection{Rules}
 
-  % ----------------------------------------
   \subsection{Formulas}
 
-  % ----------------------------------------
-
   \subsection{Reference}
-
-  \newpage
-
-
-
 
 
 % --------------------------------------

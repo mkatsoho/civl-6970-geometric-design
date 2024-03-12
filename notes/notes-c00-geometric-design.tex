@@ -1,0 +1,100 @@
+\documentclass{article}
+% \documentclass{beamer}
+% \usetheme{Madrid}
+
+%------------------------------
+% used to include other .tex files
+\usepackage{standalone}
+
+% for symbols like degree
+\usepackage{gensymb}  
+
+% used for href/url
+\usepackage{hyperref}
+
+
+% used for math fomulas
+\usepackage{amsmath}
+
+% used for pictures
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+
+% used for codes
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\footnotesize, % Set your code to be drawn with a monospaced font
+  breaklines=true, % Enables line breaking
+  frame=single % Adds a frame around the code
+}
+
+% used for Graph
+\usepackage{adigraph}
+
+% used for Bayesian Network
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}
+
+%------------------------------
+% TODO 
+\tolerance=10000
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+
+\usepackage{silence}
+\WarningFilter{latex}{Overfull \hbox}
+
+%------------------------------
+
+
+
+\title{MK's Notes for \\ CIVL-4530/6970 Geometric Design}
+\date{2024-03-04}
+\author{Michael Chen}
+
+\begin{document}
+  \pagenumbering{gobble}
+  \maketitle
+
+  \begin{align*}
+  & \textbf{TODO: make the page number consistent}
+  \\
+  \\
+  \\
+  \\
+  \\
+  \\
+  \\
+  \\
+  & \text{Geometric design is the base of transportation,}\\ 
+  \\
+  & \text{providing fundamental concepts, terms, and fomulas.}\\
+  \end{align*}
+  \newpage
+  \pagenumbering{arabic}
+  % \setcounter{page}{0}
+
+  % todo ----------------------------------------
+  \tableofcontents
+  \newpage
+
+
+  % include all chapters
+  \input{notes-c01-introduction-and-highway-function.tex}
+  \newpage
+  \input{notes-c02-design-control-and-criteria.tex}
+  \newpage
+  \input{notes-c03-sight-distance.tex}
+  \newpage
+  \input{notes-c04-horizontal-alignments.tex}
+  \newpage
+
+  \input{notes-c05-vertical-curves.tex}
+  \newpage
+
+
+% --------------------------------------
+\end{document}
