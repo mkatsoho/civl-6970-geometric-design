@@ -2,7 +2,16 @@
 % \documentclass{beamer}
 % \usetheme{Madrid}
 
+
 %------------------------------
+
+\usepackage{fancyhdr} % Set up page numbering, and make included tex files consistent
+% Set up page numbering
+\pagestyle{fancy}
+\fancyhf{} % Clear header and footer
+\rfoot{\thepage} % Right-aligned page number
+
+
 % used to include other .tex files
 \usepackage{standalone}
 
@@ -20,6 +29,9 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{float}
+
+% used for tables
+\usepackage{booktabs} % For better looking tables
 
 % used for codes
 \usepackage{listings}
@@ -60,7 +72,6 @@
   \maketitle
 
   \begin{align*}
-  & \textbf{TODO: make the page number consistent}
   \\
   \\
   \\
