@@ -1,0 +1,59 @@
+\documentclass[10pt]{article}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\begin{document}
+\definecolor{aqaqaq}{rgb}{0.6274509803921569,0.6274509803921569,0.6274509803921569}
+\definecolor{wwwwww}{rgb}{0.4,0.4,0.4}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.25cm,y=0.25cm]
+\clip(-15,8) rectangle (45,40);
+\draw [shift={(20.096403593131065,-13.597724379410053)},line width=2pt,color=qqqqff]  plot[domain=1.2414063223862712:2.2859222239454713,variable=\t]({1*46.074708430133796*cos(\t r)+0*46.074708430133796*sin(\t r)},{0*46.074708430133796*cos(\t r)+1*46.074708430133796*sin(\t r)});
+\draw [line width=2pt] (-10.230715902568766,21.322000982057844)-- (35,30);
+\draw [line width=2pt] (-10.230715902568766,21.322000982057844)-- (-10,10);
+\draw [line width=2pt] (35,30)-- (35,10);
+\draw [line width=2pt] (-10,10)-- (35,10);
+\draw [line width=2pt,dash pattern=on 1pt off 1pt,color=wwwwww] (12.384642048715616,-3.1418842224744665) -- (12.384642048715616,53.14188422247446);
+\draw [line width=2pt,dash pattern=on 1pt off 1pt,color=wwwwww,domain=-15.929988331388564:66.75526776218284] plot(\x,{(--299.64864082980273-0*\x)/20});
+\draw [line width=2pt] (12.384642048715616,14.982432041490137)-- (-10.101530313171816,14.982432041490137);
+\draw [line width=2pt] (12.384642048715616,14.982432041490137)-- (35,14.982432041490137);
+\draw [line width=2pt] (5.020524680064195,29.940725660989735)-- (5.011139176433668,18.067426856093377);
+\draw [line width=2pt,color=qqqqff] (5.012666812399182,19.99998998724653)-- (-10.199677579112063,19.798846640525234);
+\draw [line width=2pt,dash pattern=on 1pt off 1pt,color=wwwwww,domain=-15.929988331388564:66.75526776218284] plot(\x,{(--93.76379030258173--2.3674603875775446*\x)/3.2615595377380355});
+\draw [line width=2pt,dash pattern=on 1pt off 1pt,color=aqaqaq,domain=-15.929988331388564:66.75526776218284] plot(\x,{(--1829.5576056227146-14.903596406868935*\x)/43.59772437941005});
+\draw [line width=2pt,color=qqqqff] (5.020524680064195,29.940725660989735)-- (5.0246864949113945,32.39540327770854);
+\draw [line width=2pt,color=qqqqff] (12.378231505427118,37.733103331695034)-- (12.384642048715616,31.827020978202217);
+\draw [line width=2pt,color=qqqqff] (12.384642048715616,31.827020978202217)-- (12.384642048715616,25.661000491028922);
+\draw [line width=2pt] (-10.230715902568766,21.322000982057844)-- (12.378231505427118,37.733103331695034);
+\draw [line width=2pt] (12.378231505427118,37.733103331695034)-- (35,30);
+\draw [line width=2pt,dash pattern=on 1pt off 1pt,color=wwwwww] (19.825576787119903,-3.1418842224744665) -- (19.825576787119903,53.14188422247446);
+\begin{scriptsize}
+\draw [fill=ududff] (35,30) circle (2.5pt);
+\draw[color=ududff] (36.21623354176132,31.60037191215562) node {VPT};
+\draw [fill=ududff] (-10.230715902568766,21.322000982057844) circle (2.5pt);
+\draw[color=ududff] (-11.726766417180013,23.58798013819556) node {VPC};
+\draw[color=black] (14.806071916261493,11.832093846893512) node {L};
+\draw[color=black] (2.0650554888168102,16.954770554835186) node {L/2};
+\draw[color=black] (26.561958207563546,16.75774452760666) node {L/2};
+\draw[color=qqqqff] (-2.7949198494868313,19.25340753916799) node {x};
+\draw[color=qqqqff] (7.778810278444064,32.38847602106973) node {$Y_{offset}$};
+\draw[color=qqqqff] (16.644981503727738,34.68711300540253) node {E  (E = M)};
+\draw[color=qqqqff] (16.250929449270686,29.69578698227987) node {M (M = E)};
+\draw[color=black] (-2.0068157405727276,30.812267803241518) node {G1};
+\draw[color=black] (26.036555468287474,35.54089245672615) node {G2};
+\draw [fill=qqqqff] (5.020524680064195,29.940725660989735) circle (2pt);
+\draw[color=qqqqff] (7.220569867963241,29.170384243003802) node {$Y_{curve}$};
+\draw [fill=qqqqff] (12.384642048715616,37.7377565373541) circle (2pt);
+\draw[color=qqqqff] (14.806071916261493,38.9560102620206) node {VPI};
+\draw [fill=qqqqff] (5.024686494911398,32.395403277708546) circle (2pt);
+\draw[color=qqqqff] (3.4114000082117384,34.81846369022154) node {$Y_{vpc}$};
+\draw [fill=qqqqff] (19.825576787119903,32.47618808483578) circle (2.5pt);
+\draw[color=qqqqff] (22.522924649378762,31.074969172879555) node {$Y_{hi/lo}$};
+\draw [fill=qqqqff] (19.825576787119903,14.982432041490133) circle (2pt);
+\draw[color=qqqqff] (22.391573964559743,12.948574667855159) node {$x_{hi/lo}$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{document}
