@@ -263,9 +263,66 @@
   \end{tabular}
   \end{table}
   
-  
+  \subsection{Intersection Sight Distance - ISD} 
+  Sighting Rod - 3.5 feet height
+  Target Rod - 4.25 feet height
+  Observer - 10 feet behind stop bar
 
+  \begin{figure}
+    \includegraphics[width=0.7\linewidth]{ISD_leftturn.png}
+    \caption{ISD - Left Turn}
+    \label{fig:image-isd-leftturn}
+  \end{figure}
 
+  \begin{figure}
+    \includegraphics[width=0.7\linewidth]{ISD_observer.png}
+    \caption{ISD - Observer}
+    \label{fig:image-isd-observer}
+  \end{figure}
+
+  \subsection{Intersection sight distance fomulas}
+
+  \begin{align*}
+    ISD & = 1.47 V_{major} \cdot t_g \\
+    & V_{majro}: \text{in mph, design speed of major road} \\
+    & t_g: \text{in seconds, time gap for minor road vehicle to enter the major road} \\
+  \end{align*}
+
+  \subsection{ISD - left turn}
+  \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Design vehicle} & \textbf{$t_g$ in seconds, LT Time Gap} \\
+    \hline
+    Passenger car & 7.5 \\
+    \hline
+    Single-unit truck & 9.5 \\
+    \hline
+    Combination truck & 11.5 \\
+    \hline
+  \end{tabular}
+
+  \begin{enumerate}
+    \item \textbf{Left turn and multilanes}: If requiring to cross one more lane, +0.5s for passenger cars, +0.7s for trunks.
+    \item \textbf{Grade of minor road}: If the approach grade $> +3\%$, add 0.2s per additional grade.
+  \end{enumerate}
+
+  \subsection{ISD - right turn}
+  \begin{tabular}{|l|c|}
+  \hline
+  \textbf{Design vehicle} & \textbf{$t_g$ in seconds, RT time gap}\\
+  \hline
+  Passenger car & 6.5 \\
+  \hline
+  Single-unit truck & 8.5 \\
+  \hline
+  Combination truck & 10.5 \\
+  \hline
+  \end{tabular}
+
+  \begin{enumerate}
+    \item \textbf{right turn and multilanes}: If requiring to cross one more lane, +0.5s for passenger cars, +0.7s for trunks.
+    \item \textbf{Grade of minor road}: If the approach grade $> +3\%$, add 0.1s per additional grade.
+  \end{enumerate}
 
 
   % ----------------------------------------
