@@ -285,6 +285,92 @@
 
   \subsection{Reference}
 
+  \newpage
+  \subsection{In-class exam 1 - sag curve}
+  A sag curve connects a downward 5\% grade with an upward 2\% grade.  The length of the curve is 800 feet.  The elevation of the beginning of the curve is 648.52 ft.  The station of VPI is 31+00.  Find the station and elevation of a low point of the curve.
+  \\
+  \begin{align*}
+    G_1 & = -0.05 \\
+    G_2 & = +0.02 \\
+    L & = 800 \\
+    Y_{vpc} & = 648.52 \\
+    Sta_{vpi} & = 31+00 \\
+    x_{vpi} & = 3100 \\
+    \\
+    \textbf{Calculation}\\
+    \text{(1) station of low:} \\
+    x_{low} & = L \frac{G_1}{G_1 - G_2} \\
+            & = 800 * \frac{-0.05}{-0.05 - 0.02} \\
+            & = 800 * 5 / 7 \\
+            & = 571.42 ft \\
+    Sta_x & = Sta_{vpi} - L/2 + x_{low} \\
+          & = 3100 - 800/2 + 571.42 \\
+          & = 3271.42 = 32+71.42 \\
+    \text{(2) Tangent Elevation of low point:} \\
+    Y_{tan low} & = Y_{vpc} + G_1x_{low} \\
+              & = 648.52 -0.05 * 571.42 \\
+              & = 619.95 ft\\
+    \text{(2) curve elevation of low point:} \\
+    Y_{low} & = Y_{vpc} + G_1x_{low} + \frac{A}{2L}x_{low}^2 \\
+            & = 648.52 -0.05 * 571.42 + 0.07/2/800*571.42^2\\
+            & = 660.23 ft\\
+  \end{align*}
+
+  \newpage
+  \subsection{In-class exam 2 - low point example}
+  A 600-ft equal-tangent sag vertical curve has the PVC at station 170+00 and elevation 1000 ft. The initial grade is -3.5\% and the final grade is +0.5\%. Determine the stationing and elevation of the PVI, the PVT, and the lowest point on the curve.\\
+  \\
+  \begin{align*}
+    Given:\\
+    L & = 600 ft \\
+    Sta_{pvc} & = 170+00\\
+    Ele_{pvc} & = 1000 ft\\
+    G_1 = -0.035 \\
+    G_2 = +0.005 \\
+    \\
+    \text{(1) station and elevation of PVI:}\\
+    \textbf{TODO} \\
+    \text{(2) station and elevation of PVT:}\\
+    \textbf{TODO} \\
+    \text{(3) station and elevation of the lowest point:}\\
+    x_{low} & = L\frac{G_1}{G_1-G_2} \\
+            & = 600 * \frac{-0.035}{-0.035 - 0.005} \\
+            & = 525.00 ft\\
+    Sta_{low} & = Sta_{pvc} + x_{low} \\
+              & = 17000 + 525.00 \\
+              & = 175+25.00 \\
+    Y_{tan} &= Y_{pvc} + G_1x_{low} \\
+            &= 1000 - 0.035 * 525.00\\
+            &= 981.63 ft 
+    Y_{curve} &= Y_{tan} + \frac{A}{2L}x_{low}^2 \\
+              &= 981.63 + \frac{0.005 - -0.035}{2*600}525.00^2\\
+              &= 990.82 ft \\
+  \end{align*}
+  
+  \newpage
+  \subsection{In-class exam 3 - langth example}
+  A crest curve joins an upgrade of 4\% with a downgrade of 3\% on a multilane highway.  The speed limit is 60 mph.  What should be the minimum length of the vertical curve, making the most conservative assumptions.\\
+  \begin{align*}
+  \\    
+  \end{align*}
+
+  \newpage
+  \subsection{Homework 5.1}
+  A 500-meter equal-tangent sag vertical curve has the PVC at station 100+00 with an elevation of 1000 m. The initial grade is -4\% and the final grade is +2\%. Determine the stationing and elevation of the PVI, the PVT, and the lowest point on the curve.\\
+  \begin{align*}
+  \\    
+  \end{align*}
+
+  \newpage
+  \subsection{Homework 5.2}
+  A current roadway has a design speed of 100 km/hr, a coefficient of friction of 0.1, and carries drivers with perception-reaction times of 2.5 seconds. The drivers use cars that allows their eyes to be 1 meter above the road. Because of ample roadkill in the area, the road has been designed for carcasses that are 0.5 meters in height. All curves along that road have been designed accordingly.\\
+  \\
+  The local government, seeing the potential of tourism in the area and the boost to the local economy, wants to increase the speed limit to 110 km/hr to attract summer drivers. Residents along the route claim that this is a horrible idea, as a particular curve called "Dead Man's Hill" would earn its name because of sight distance problems. "Dead Man's Hill" is a crest curve that is roughly 600 meters in length. It starts with a grade of +1.0\% and ends with (-1.0)\%. There has never been an accident on "Dead Man's Hill" as of yet, but residents truly believe one will come about in the near future. \\
+  \\
+  A local politician who knows little to nothing about engineering (but thinks he does) states that the 600-meter length is a long distance and more than sufficient to handle the transition of eager big-city drivers. Still, the residents push back, saying that 600 meters is not nearly the distance required for the speed. The politician begins a lengthy campaign to "Bring Tourism to Town", saying that the residents are trying to stop "progress". As an engineer, determine if these residents are indeed making a valid point or if they are simply trying to stop progress? \\
+  \begin{align*}
+  \\    
+  \end{align*}
 
 % --------------------------------------
 \end{document}
